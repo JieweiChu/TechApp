@@ -6,12 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <android.support.v7.widget.RecyclerView android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,6 +19,29 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
+<!--    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+
+        <include layout="@layout/content_main" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>-->
+
+    <android.support.v7.widget.RecyclerView android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
 
     <include layout="@layout/content_main" />
 

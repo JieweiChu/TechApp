@@ -1,11 +1,10 @@
 package com.techapp.techepilogued;
 
-import android.app.LauncherActivity;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -13,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.techapp.techepilogued.adapter.RssFeedAdapter;
@@ -21,6 +19,7 @@ import com.techapp.techepilogued.model.RssFeed;
 
 public class MainActivity extends AppCompatActivity {
 
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +27,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        swipeRefreshLayout = findViewById(R.id.swipeToRefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Toolbar toolbar = findViewById(R.id.toolbar);
+                setSupportActionBar(toolbar);
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+/*
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+*/
 
     }
 
@@ -61,4 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }
